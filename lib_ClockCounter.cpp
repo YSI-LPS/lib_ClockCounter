@@ -1,11 +1,11 @@
 /** Mbed Library Clock Counter
 * Hardware pulse counter with TIMER2 (CAP2.0 or CAP2.1) on Mbed LPC1768
 *
-* Counts signal transitions on p30(CAP2.0) or p29(CAP2.1).
+* Counts signal transitions on p30(CAP2.0) or p29(CAP2.1) for LPC1768 target.
 * Can detecte rising, falling or both signal edge.
-* Return the signal edge count during a periode in seconds.
-* Shannon's theorem say with an input signal frequency up to 48 MHz with 96 MHz CCLK.
-* Only tested with frequencys up to 20 MHz and it work.
+* Return the signal edge count during a period in seconds.
+* In theory (Shannon's theorem) input signal frequency can up to 48 MHz with 96 MHz CCLK.
+* But only tested with frequencys up to 20 MHz and it work.
 *
 * Example :
 * @code
