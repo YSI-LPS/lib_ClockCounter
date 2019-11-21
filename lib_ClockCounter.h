@@ -30,23 +30,21 @@
 #error unsupported target
 #else
 
-/** Counts signal transitions on p30(CAP2.0) or p29(CAP2.1) for LPC1768 target.
+enum edgeDetection  { RISING = 1, FALLING = 2, BOTH = 3 };
+
+/** ClockCounter class
+*   Counts signal transitions on p30(CAP2.0) or p29(CAP2.1) for LPC1768 target.
 *   Can detecte rising, falling or both signal edge.
 *   Return the signal edge count during a period in seconds.
 *   In theory (Shannon's theorem) input signal frequency can up to 48 MHz with 96 MHz CCLK.
 *   But only tested with frequencys up to 20 MHz and it work.
-*/
-
-enum edgeDetection  { RISING = 1, FALLING = 2, BOTH = 3 };
-
-/** ClockCounter class
  */
 class ClockCounter
 {
 public:
     /** Create an ClockCounter instance.
     *
-    * Configure LPC1768 TIMER2 with capture input @param PIN_CAP2 and detecte transition @param EDGE.
+    * Configure LPC1768 TIMER2 with capture input PIN_CAP2 and detecte transition EDGE.
     *
     * @param PIN_CAP2 can be p30(CAP2.0) or p29(CAP2.1), default is p30(CAP2.0).
     * @param EDGE can be RISING, FALLING, BOTH, default is RISING.
