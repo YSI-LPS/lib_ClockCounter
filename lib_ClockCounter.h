@@ -53,9 +53,9 @@ public:
 
     /** Get the signal transition count during period
     *
-    * @param period default is 1.0 second.
+    * @param period default is 1000000 microsecond.
      */
-    int getCount(float period = 1.0);
+    int getCount(int period = 1000000);
 };
 #endif
 #endif

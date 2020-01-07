@@ -45,12 +45,12 @@ ClockCounter::ClockCounter(PinName PIN_CAP2, edgeDetection EDGE)
     }
 }
 
-int ClockCounter::getCount(float period)
+int ClockCounter::getCount(int period)
 {
                                                                     // TCR => Timer Control Register
     LPC_TIM2->TCR = 0x2;                                            // Bits(1,0) 10 => Timer2 count reset
     LPC_TIM2->TCR = 0x1;                                            // Bits(1,0) 01 => Timer2 enabled
-    wait(period);
+    wait_us(period);
     LPC_TIM2->TCR = 0x0;                                            // Bits(1,0) 00 => Timer2 disabled
     return LPC_TIM2->TC;                                            // TC => Timer Counter
 }
