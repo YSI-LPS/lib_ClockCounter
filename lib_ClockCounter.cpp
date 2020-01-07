@@ -42,6 +42,8 @@ ClockCounter::ClockCounter(PinName PIN_CAP2, edgeDetection EDGE)
                                                                     // CCR => Capture Control Register
             LPC_TIM2->CCR = 0x0;                                    // Bits(5,4,3,2,1,0) 000000 => capture and interrupt on event disabled
         break;
+        default:
+        break;
     }
 }
 
