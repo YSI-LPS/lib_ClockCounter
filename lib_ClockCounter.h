@@ -51,11 +51,38 @@ public:
     */
     ClockCounter(PinName PIN_CAP2 = p30, edgeDetection EDGE = RISING);
 
+    /** Select an ClockCounter instance
+    *
+    * Configure LPC1768 TIMER2 with capture input PIN_CAP2 and detecte transition EDGE.
+    *
+    * @param PIN_CAP2 can be p30(CAP2.0) or p29(CAP2.1).
+    * @param EDGE can be RISING, FALLING, BOTH, default is RISING.
+    */
+    void setPin(PinName PIN_CAP2, edgeDetection EDGE = RISING);
+
+    /** Start the signal transition count
+    *
+    */
+    void startCount(void);
+
+    /** Stop and Get the signal transition count
+    *
+     */
+    int stopCount(void);
+
     /** Get the signal transition count during period
     *
     * @param period default is 1000000 microsecond.
      */
     int getCount(int period = 1000000);
+
+    /** Get the selected input PIN_CAP2 on started signal transition count
+    *
+     */
+    PinName getPin(void);
+private:
+    int _count;
+    PinName _selectPin;
 };
 #endif
 #endif
